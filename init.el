@@ -42,8 +42,11 @@
 ;; Hide toolbar
 (tool-bar-mode -1)
 
-;; avoid opening of new frame when opening from finder
+;; Avoid opening of new frame when opening from finder
 (setq ns-pop-up-frames nil)
+
+;; Avoid custom data to be writen into init
+(setq custom-file (make-temp-file "custom.el"))
 
 ;; Auto indent
 (define-key global-map (kbd "RET") 'newline-and-indent)
@@ -89,15 +92,3 @@
 ;;;;;;;;;
 ;; End ;;
 ;;;;;;;;;
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(package-selected-packages (quote (magit exec-path-from-shell ess elpy cider))))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )
