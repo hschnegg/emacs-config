@@ -1,0 +1,4 @@
+eshell/*
+!eshell/login
+*
+!init.el

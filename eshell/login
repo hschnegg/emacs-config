@@ -1,0 +1,3 @@
+## Aliases
+alias emacs 'find-file $1'
+alias ll 'ls -lah $1'
