@@ -78,6 +78,9 @@
 ;; ELPY
 ;; pip install flake8
 ;; pip install jedi
+(setq elpy-shell-echo-output nil)
+(setq elpy-rpc-python-command "python3")
+(setq python-shell-interpreter "python3")
 (elpy-enable)
 
 ;;;;;;;;;;;;;
@@ -94,3 +97,4 @@
 ;;;;;;;;;
 ;; End ;;
 ;;;;;;;;;
+(put 'downcase-region 'disabled nil)
