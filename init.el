@@ -21,7 +21,8 @@
     ess
     elpy
     cider
-    company))
+    company
+    markdown-mode))
 
 ;; Install missing packages
 (require 'cl-lib)
@@ -84,9 +85,6 @@
 ;; ELPY
 ;; pip install flake8
 ;; pip install jedi
-(setq elpy-shell-echo-output nil)
-(setq elpy-rpc-python-command "python3")
-(setq python-shell-interpreter "python3")
 (elpy-enable)
 
 ;;;;;;;;;;;;;
@@ -100,7 +98,11 @@
 (add-hook 'cider-mode-hook #'company-mode)
 (add-hook 'cider-mode-hook #'cider-company-enable-fuzzy-completion)
 
+;;;;;;;;;;;;;;
+;; Markdown ;;
+;;;;;;;;;;;;;;
+(require 'markdown-mode)
+
 ;;;;;;;;;
 ;; End ;;
 ;;;;;;;;;
-(put 'downcase-region 'disabled nil)
