@@ -22,7 +22,8 @@
     elpy
     cider
     company
-    markdown-mode))
+    markdown-mode
+    pyenv-mode))
 
 ;; Install missing packages
 (require 'cl-lib)
