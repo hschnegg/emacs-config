@@ -3,7 +3,6 @@
 ;;;;;;;;;;;;;;;;;;;;
 
 ;; Package initialisation
-(require 'package)
 (setq package-archives
       '(("GNU ELPA"     . "https://elpa.gnu.org/packages/")
         ("MELPA Stable" . "https://stable.melpa.org/packages/")
@@ -12,7 +11,6 @@
       '(("MELPA Stable" . 10)
         ("GNU ELPA"     . 5)
         ("MELPA"        . 0)))
-(package-initialize)
 
 ;; List of packages to install
 (defvar my/packages
@@ -23,7 +21,10 @@
     cider
     company
     markdown-mode
-    pyenv-mode))
+    pyenv-mode
+    ;; haskell-mode
+    ;; tidal
+    which-key))
 
 ;; Install missing packages
 (require 'cl-lib)
@@ -72,6 +73,9 @@
 ;; Ido
 (ido-mode t)
 
+;; which - key
+(require 'which-key)
+
 ;;;;;;;
 ;; R ;;
 ;;;;;;;
@@ -102,7 +106,15 @@
 ;;;;;;;;;;;;;;
 ;; Markdown ;;
 ;;;;;;;;;;;;;;
+
 (require 'markdown-mode)
+
+;;;;;;;;;;;;;;;;;;
+;; Tydal Cycles ;;
+;;;;;;;;;;;;;;;;;;
+
+;; (require 'tidal)
+;; (setq tidal-interpreter "~/.ghcup/bin/ghci")
 
 ;;;;;;;;;
 ;; End ;;
