@@ -20,11 +20,12 @@
     elpy
     cider
     company
-    markdown-mode
+    ;; markdown-mode
     pyenv-mode
     ;; haskell-mode
     ;; tidal
-    which-key))
+    ;; which-key
+    ))
 
 ;; Install missing packages
 (require 'cl-lib)
