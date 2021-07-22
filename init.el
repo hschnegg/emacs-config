@@ -53,7 +53,7 @@
 (tool-bar-mode -1)
 
 ;; Avoid opening of new frame when opening from finder
-(setq ns-pop-up-frames nil)
+;; (setq ns-pop-up-frames nil)
 
 ;; Avoid custom data to be writen into init
 (setq custom-file (make-temp-file "custom.el"))
