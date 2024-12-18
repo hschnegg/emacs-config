@@ -10,7 +10,6 @@
 ;; list the repositories containing them
 (setq package-archives '(("elpa" . "http://tromey.com/elpa/")
                          ("gnu" . "http://elpa.gnu.org/packages/")
-                         ("marmalade" . "http://marmalade-repo.org/packages/")
 			 ("MELPA Stable" . "https://stable.melpa.org/packages/")
 			 ("MELPA" . "https://melpa.org/packages/")))
 
@@ -82,6 +81,8 @@
 (elpy-enable)
 (setq elpy-rpc-virtualenv-path 'current)
 (pyenv-mode)
+;; temp fix to work around bug -> see: https://github.com/jorgenschaefer/elpy/issues/1976
+(setq elpy-shell-echo-output nil) 
 
 ;;;;;;;;;;;;;
 ;; Clojure ;;
@@ -97,3 +98,4 @@
 ;;;;;;;;;
 ;; End ;;
 ;;;;;;;;;
+(put 'downcase-region 'disabled nil)
