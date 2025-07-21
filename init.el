@@ -5,7 +5,7 @@
 
 ;; Install Missing Packages
 ;; list the packages you want
-(setq package-list '(magit ess elpy cider company pyenv-mode which-key exec-path-from-shell))
+(setq package-list '(magit ess elpy cider company which-key exec-path-from-shell uv-mode))
 
 ;; list the repositories containing them
 (setq package-archives '(("elpa" . "http://tromey.com/elpa/")
@@ -76,13 +76,13 @@
 ;;;;;;;;;;;;
 
 ;; ELPY
-;; pip install flake8
-;; pip install jedi
+;; In virtual env:
+;; uv add jedi rope black flake8 importmagic autopep8 yapf packaging
 (elpy-enable)
 (setq elpy-rpc-virtualenv-path 'current)
-(pyenv-mode)
-;; temp fix to work around bug -> see: https://github.com/jorgenschaefer/elpy/issues/1976
-(setq elpy-shell-echo-output nil) 
+;; UV
+(use-package uv-mode
+  :hook (python-mode . uv-mode-auto-activate-hook))
 
 ;;;;;;;;;;;;;
 ;; Clojure ;;
