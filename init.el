@@ -16,7 +16,7 @@
 ;; activate all the packages (in particular autoloads)
 (package-initialize)
 
-;; fetch the list of packages available 
+;; fetch the list of packages available
 (unless package-archive-contents
   (package-refresh-contents))
 
@@ -95,7 +95,34 @@
 (add-hook 'cider-mode-hook #'company-mode)
 (add-hook 'cider-mode-hook #'cider-company-enable-fuzzy-completion)
 
+;;;;;;;;;;;;;;;;;
+;; Claude Code ;;
+;;;;;;;;;;;;;;;;;
+
+;; Monet
+(use-package monet
+  :vc (:url "https://github.com/stevemolitor/monet" :rev :newest))
+
+;; eat
+(use-package eat
+  :vc (:url "https://codeberg.org/akib/emacs-eat.git" :rev :newest))
+
+
+;; claude-code.el
+(use-package claude-code :ensure t
+  :vc (:url "https://github.com/stevemolitor/claude-code.el" :rev :newest)
+  :config 
+  ;; optional IDE integration with Monet
+  (add-hook 'claude-code-process-environment-functions #'monet-start-server-function)
+  (monet-mode 1)
+  
+  (claude-code-mode)
+  :bind-keymap ("C-c c" . claude-code-command-map)
+  
+  ;; Optionally define a repeat map so that "M" will cycle thru Claude auto-accept/plan/confirm modes after invoking claude-code-cycle-mode / C-c M.
+  :bind
+  (:repeat-map my-claude-code-map ("M" . claude-code-cycle-mode)))
+
 ;;;;;;;;;
 ;; End ;;
 ;;;;;;;;;
-(put 'downcase-region 'disabled nil)
